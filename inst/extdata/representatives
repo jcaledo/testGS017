@@ -1,0 +1,53 @@
+
+
+ ------------ Reconciliation for Gene Tree 1 (rooted) -------------
+Species Tree: 
+((Cyc,((Ap,Tba)n4,Eph)n3)n2,(Zm,Atr)n5)n1;
+
+Gene Tree: 
+(((((Eph_GS1bx,Eph_GS1by)m5,((Ap_GS1b,Cyc_GS1b)m9,Tba_GS1b)m8)m4,((((Zm_GS1b_3,Zm_GS1b_4)m16,Atr_GS1b_2)m15,Atr_GS1b_1)m14,((Zm_GS1b_1,Zm_GS1b_5)m22,Zm_GS1b_2)m21)m13)m3,((((Tba_GS1a,Ap_GS1a)m29,Eph_GS1a)m28,Cyc_GS1a)m27,Atr_GS1a)m26)m2,((Atr_GS2,Zm_GS2)m36,Cyc_GS2)m35)m1;
+
+Reconciliation:
+Eph_GS1bx: Leaf Node
+Eph_GS1by: Leaf Node
+m5 = LCA[Eph_GS1bx, Eph_GS1by]: Duplication, Mapping --> Eph
+Ap_GS1b: Leaf Node
+Cyc_GS1b: Leaf Node
+m9 = LCA[Ap_GS1b, Cyc_GS1b]: Speciation, Mapping --> n2
+Tba_GS1b: Leaf Node
+m8 = LCA[Ap_GS1b, Tba_GS1b]: Duplication, Mapping --> n2
+m4 = LCA[Eph_GS1bx, Tba_GS1b]: Duplication, Mapping --> n2
+Zm_GS1b_3: Leaf Node
+Zm_GS1b_4: Leaf Node
+m16 = LCA[Zm_GS1b_3, Zm_GS1b_4]: Duplication, Mapping --> Zm
+Atr_GS1b_2: Leaf Node
+m15 = LCA[Zm_GS1b_3, Atr_GS1b_2]: Speciation, Mapping --> n5
+Atr_GS1b_1: Leaf Node
+m14 = LCA[Zm_GS1b_3, Atr_GS1b_1]: Duplication, Mapping --> n5
+Zm_GS1b_1: Leaf Node
+Zm_GS1b_5: Leaf Node
+m22 = LCA[Zm_GS1b_1, Zm_GS1b_5]: Duplication, Mapping --> Zm
+Zm_GS1b_2: Leaf Node
+m21 = LCA[Zm_GS1b_1, Zm_GS1b_2]: Duplication, Mapping --> Zm
+m13 = LCA[Zm_GS1b_3, Zm_GS1b_2]: Duplication, Mapping --> n5
+m3 = LCA[Eph_GS1bx, Zm_GS1b_2]: Speciation, Mapping --> n1
+Tba_GS1a: Leaf Node
+Ap_GS1a: Leaf Node
+m29 = LCA[Tba_GS1a, Ap_GS1a]: Speciation, Mapping --> n4
+Eph_GS1a: Leaf Node
+m28 = LCA[Tba_GS1a, Eph_GS1a]: Speciation, Mapping --> n3
+Cyc_GS1a: Leaf Node
+m27 = LCA[Tba_GS1a, Cyc_GS1a]: Speciation, Mapping --> n2
+Atr_GS1a: Leaf Node
+m26 = LCA[Tba_GS1a, Atr_GS1a]: Speciation, Mapping --> n1
+m2 = LCA[Eph_GS1bx, Atr_GS1a]: Duplication, Mapping --> n1
+Atr_GS2: Leaf Node
+Zm_GS2: Leaf Node
+m36 = LCA[Atr_GS2, Zm_GS2]: Speciation, Mapping --> n5
+Cyc_GS2: Leaf Node
+m35 = LCA[Atr_GS2, Cyc_GS2]: Speciation, Mapping --> n1
+m1 = LCA[Eph_GS1bx, Cyc_GS2]: Duplication, Mapping --> n1
+
+The minimum reconciliation cost is: 21 (Duplications: 10, Transfers: 0, Losses: 11)
+Total number of optimal solutions: 1
+Total number of candidates for gene birth: 1

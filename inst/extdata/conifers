@@ -1,0 +1,71 @@
+
+
+ ------------ Reconciliation for Gene Tree 1 (rooted) -------------
+Species Tree: 
+((((Pa,Psm)n4,(Pp,Pin)n5)n3,(Abi,Ap)n6)n2,((Ara,(Pod,Nag)n9)n8,(Sci,(Tba,Tax)n11)n10)n7)n1;
+
+Gene Tree: 
+((((((Pa_GS1b_1,Psm_GS1b_1)m6,(Pp_GS1b_1,Pin_GS1b_1)m9)m5,(Ap_GS1b,Abi_GS1b_1)m12)m4,((Pp_GS1b_2,Pin_GS1b_2)m16,(Pa_GS1b_2,Psm_GS1b_2)m19)m15)m3,((((Sci_GS1b_x,Sci_GS1b_y)m25,Ara_GS1b)m24,(Tba_GS1b,Tax_GS1b)m29)m23,(Pod_GS1b,Nag_GS1b)m32)m22)m2,((((Tba_GS1a,Tax_GS1a)m38,Sci_GS1a)m37,((Pod_GS1a,Nag_GS1a)m43,Ara_GS1a)m42)m36,(((Pa_GS1a,Psm_GS1a)m49,(Ap_GS1a,Abi_GS1a)m52)m48,(Pp_GS1a,Pin_GS1a)m55)m47)m35)m1;
+
+Reconciliation:
+Pa_GS1b_1: Leaf Node
+Psm_GS1b_1: Leaf Node
+m6 = LCA[Pa_GS1b_1, Psm_GS1b_1]: Speciation, Mapping --> n4
+Pp_GS1b_1: Leaf Node
+Pin_GS1b_1: Leaf Node
+m9 = LCA[Pp_GS1b_1, Pin_GS1b_1]: Speciation, Mapping --> n5
+m5 = LCA[Pa_GS1b_1, Pin_GS1b_1]: Speciation, Mapping --> n3
+Ap_GS1b: Leaf Node
+Abi_GS1b_1: Leaf Node
+m12 = LCA[Ap_GS1b, Abi_GS1b_1]: Speciation, Mapping --> n6
+m4 = LCA[Pa_GS1b_1, Abi_GS1b_1]: Speciation, Mapping --> n2
+Pp_GS1b_2: Leaf Node
+Pin_GS1b_2: Leaf Node
+m16 = LCA[Pp_GS1b_2, Pin_GS1b_2]: Speciation, Mapping --> n5
+Pa_GS1b_2: Leaf Node
+Psm_GS1b_2: Leaf Node
+m19 = LCA[Pa_GS1b_2, Psm_GS1b_2]: Speciation, Mapping --> n4
+m15 = LCA[Pp_GS1b_2, Psm_GS1b_2]: Speciation, Mapping --> n3
+m3 = LCA[Pa_GS1b_1, Psm_GS1b_2]: Duplication, Mapping --> n2
+Sci_GS1b_x: Leaf Node
+Sci_GS1b_y: Leaf Node
+m25 = LCA[Sci_GS1b_x, Sci_GS1b_y]: Duplication, Mapping --> Sci
+Ara_GS1b: Leaf Node
+m24 = LCA[Sci_GS1b_x, Ara_GS1b]: Speciation, Mapping --> n7
+Tba_GS1b: Leaf Node
+Tax_GS1b: Leaf Node
+m29 = LCA[Tba_GS1b, Tax_GS1b]: Speciation, Mapping --> n11
+m23 = LCA[Sci_GS1b_x, Tax_GS1b]: Duplication, Mapping --> n7
+Pod_GS1b: Leaf Node
+Nag_GS1b: Leaf Node
+m32 = LCA[Pod_GS1b, Nag_GS1b]: Speciation, Mapping --> n9
+m22 = LCA[Sci_GS1b_x, Nag_GS1b]: Duplication, Mapping --> n7
+m2 = LCA[Pa_GS1b_1, Nag_GS1b]: Speciation, Mapping --> n1
+Tba_GS1a: Leaf Node
+Tax_GS1a: Leaf Node
+m38 = LCA[Tba_GS1a, Tax_GS1a]: Speciation, Mapping --> n11
+Sci_GS1a: Leaf Node
+m37 = LCA[Tba_GS1a, Sci_GS1a]: Speciation, Mapping --> n10
+Pod_GS1a: Leaf Node
+Nag_GS1a: Leaf Node
+m43 = LCA[Pod_GS1a, Nag_GS1a]: Speciation, Mapping --> n9
+Ara_GS1a: Leaf Node
+m42 = LCA[Pod_GS1a, Ara_GS1a]: Speciation, Mapping --> n8
+m36 = LCA[Tba_GS1a, Ara_GS1a]: Speciation, Mapping --> n7
+Pa_GS1a: Leaf Node
+Psm_GS1a: Leaf Node
+m49 = LCA[Pa_GS1a, Psm_GS1a]: Speciation, Mapping --> n4
+Ap_GS1a: Leaf Node
+Abi_GS1a: Leaf Node
+m52 = LCA[Ap_GS1a, Abi_GS1a]: Speciation, Mapping --> n6
+m48 = LCA[Pa_GS1a, Abi_GS1a]: Speciation, Mapping --> n2
+Pp_GS1a: Leaf Node
+Pin_GS1a: Leaf Node
+m55 = LCA[Pp_GS1a, Pin_GS1a]: Speciation, Mapping --> n5
+m47 = LCA[Pa_GS1a, Pin_GS1a]: Duplication, Mapping --> n2
+m35 = LCA[Tba_GS1a, Pin_GS1a]: Speciation, Mapping --> n1
+m1 = LCA[Pa_GS1b_1, Pin_GS1a]: Duplication, Mapping --> n1
+
+The minimum reconciliation cost is: 16 (Duplications: 6, Transfers: 0, Losses: 10)
+Total number of optimal solutions: 1
+Total number of candidates for gene birth: 1

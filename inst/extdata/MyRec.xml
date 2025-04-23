@@ -1,0 +1,109 @@
+<recPhylo>
+<spTree>
+<phylogeny>
+  <clade>
+    <name>n1</name>
+    <clade>
+      <name>Sp1</name>
+    </clade>
+    <clade>
+      <name>n2</name>
+      <clade>
+        <name>Sp2</name>
+      </clade>
+      <clade>
+        <name>n3</name>
+        <clade>
+          <name>Sp3</name>
+        </clade>
+        <clade>
+          <name>Sp4</name>
+        </clade>
+      </clade>
+    </clade>
+  </clade>
+</phylogeny>
+</spTree>
+<recGeneTree>
+<phylogeny rooted="true">
+  <clade>
+    <name>m1</name>
+    <eventsRec>
+    <speciation speciesLocation="n1"></speciation>
+    </eventsRec>
+    <clade>
+      <name>Sp1_A</name>
+      <eventsRec>
+      <leaf speciesLocation="Sp1"></leaf>
+      </eventsRec>
+    </clade>
+    <clade>
+      <name>m3</name>
+      <eventsRec>
+      <duplication speciesLocation="n2"></duplication>
+      </eventsRec>
+      <clade>
+        <name>m5</name>
+        <eventsRec>
+        <speciation speciesLocation="n2"></speciation>
+        </eventsRec>
+        <clade>
+          <name>Sp2_A</name>
+          <eventsRec>
+          <leaf speciesLocation="Sp2"></leaf>
+          </eventsRec>
+        </clade>
+        <clade>
+          <name>INS_m5</name>
+          <eventsRec>
+          <speciation speciesLocation="n3"></speciation>
+          </eventsRec>
+          <clade>
+            <name>Sp4_A</name>
+            <eventsRec>
+            <leaf speciesLocation="Sp4"></leaf>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>LOSS</name>
+            <eventsRec>
+            <loss speciesLocation="Sp3"></loss>
+            </eventsRec>
+          </clade>
+        </clade>
+      </clade>
+      <clade>
+        <name>INS_m3</name>
+        <eventsRec>
+        <speciation speciesLocation="n3"></speciation>
+        </eventsRec>
+        <clade>
+          <name>INS_m3</name>
+          <eventsRec>
+          <speciation speciesLocation="n2"></speciation>
+          </eventsRec>
+          <clade>
+            <name>Sp3_A</name>
+            <eventsRec>
+            <leaf speciesLocation="Sp3"></leaf>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>LOSS</name>
+            <eventsRec>
+            <loss speciesLocation="Sp2"></loss>
+            </eventsRec>
+          </clade>
+        </clade>
+        <clade>
+          <name>LOSS</name>
+          <eventsRec>
+          <loss speciesLocation="Sp4"></loss>
+          </eventsRec>
+        </clade>
+      </clade>
+    </clade>
+  </clade>
+</phylogeny>
+</recGeneTree>
+</recPhylo>

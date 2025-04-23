@@ -1,0 +1,169 @@
+
+
+ ------------ Reconciliation for Gene Tree 1 (rooted) -------------
+Species Tree: 
+((Gin,(Zam,(Cyc,Cha)n4)n3)n2,(((Eph,(Wel,Gne)n8)n7,((Abi,Ap)n10,((Pa,(Psm,(Pe,Pg)n14)n13)n12,((Pl,Pin)n16,(Pta,(Pp,Psy)n18)n17)n15)n11)n9)n6,((Ara,(Nag,Pod)n21)n20,(Sci,((Cun,(Met,(Pla,Fok)n26)n25)n24,(Cep,((Tor,Ame)n29,(Tax,Tba)n30)n28)n27)n23)n22)n19)n5)n1;
+
+Gene Tree: 
+((((((((((Ame_GS1b,Tor_GS1b)m10,Cep_GS1b)m9,(Tba_GS1b,Tax_GS1b)m14)m8,(((((((Pp_GS1b_1,Psy_GS1b_1)m23,Pta_GS1b_1)m22,(Pl_GS1b_1,Pin_GS1b_1)m27)m21,(((Pa_GS1b_1,Pg_GS1b_1)m32,Pe_GS1b_1)m31,Psm_GS1b_1)m30)m20,(Ap_GS1b,Abi_GS1b_1)m37)m19,(((((Pta_GS1b_2,Psy_GS1b_2)m44,Pp_GS1b_2)m43,Pl_GS1b_2)m42,Pin_GS1b_2)m41,(((Pg_GS1b_2,Pe_GS1b_2)m52,Pa_GS1b_2)m51,Psm_GS1b_2)m50)m40)m18,((Pla_GS1b,Fok_GS1b)m58,(Cun_GS1b,Met_GS1b)m61)m57)m17)m7,(((Sci_GS1b_x,Sci_GS1b_y)m66,Ara_GS1b)m65,(Pod_GS1b,Nag_GS1b)m70)m64)m6,(((Cha_GS1b,Cyc_GS1b)m75,Zam_GS1b)m74,Gin_GS1b_1)m73)m5,(Gin_GS1b_2,Gin_GS1b_3)m80)m4,((Eph_GS1bx,Eph_GS1by)m84,(Gne_GS1b,Wel_GS1b)m87)m83)m3,(((Gne_GS1a,Wel_GS1a)m92,Eph_GS1a)m91,((((((Pod_GS1a,Nag_GS1a)m101,Ara_GS1a)m100,(((((Met_GS1a,Fok_GS1a)m109,Pla_GS1a)m108,Sci_GS1a)m107,(((Ame_GS1a,Tor_GS1a)m116,Cun_GS1a)m115,Cep_GS1a)m114)m106,(Tba_GS1a,Tax_GS1a)m121)m105)m99,Gin_GS1a)m98,(((((Pg_GS1a,Pe_GS1a)m129,Pa_GS1a)m128,Psm_GS1a)m127,(Ap_GS1a,Abi_GS1a)m134)m126,(((Pp_GS1a,Psy_GS1a)m139,Pta_GS1a)m138,(Pl_GS1a,Pin_GS1a)m143)m137)m125)m97,((Cha_GS1a,Cyc_GS1a)m147,Zam_GS1a)m146)m96)m90)m2,((Cha_GS2,Cyc_GS2)m152,Gin_GS2)m151)m1;
+
+Reconciliation:
+Ame_GS1b: Leaf Node
+Tor_GS1b: Leaf Node
+m10 = LCA[Ame_GS1b, Tor_GS1b]: Speciation, Mapping --> n29
+Cep_GS1b: Leaf Node
+m9 = LCA[Ame_GS1b, Cep_GS1b]: Speciation, Mapping --> n27
+Tba_GS1b: Leaf Node
+Tax_GS1b: Leaf Node
+m14 = LCA[Tba_GS1b, Tax_GS1b]: Speciation, Mapping --> n30
+m8 = LCA[Ame_GS1b, Tax_GS1b]: Duplication, Mapping --> n27
+Pp_GS1b_1: Leaf Node
+Psy_GS1b_1: Leaf Node
+m23 = LCA[Pp_GS1b_1, Psy_GS1b_1]: Speciation, Mapping --> n18
+Pta_GS1b_1: Leaf Node
+m22 = LCA[Pp_GS1b_1, Pta_GS1b_1]: Speciation, Mapping --> n17
+Pl_GS1b_1: Leaf Node
+Pin_GS1b_1: Leaf Node
+m27 = LCA[Pl_GS1b_1, Pin_GS1b_1]: Speciation, Mapping --> n16
+m21 = LCA[Pp_GS1b_1, Pin_GS1b_1]: Speciation, Mapping --> n15
+Pa_GS1b_1: Leaf Node
+Pg_GS1b_1: Leaf Node
+m32 = LCA[Pa_GS1b_1, Pg_GS1b_1]: Speciation, Mapping --> n12
+Pe_GS1b_1: Leaf Node
+m31 = LCA[Pa_GS1b_1, Pe_GS1b_1]: Duplication, Mapping --> n12
+Psm_GS1b_1: Leaf Node
+m30 = LCA[Pa_GS1b_1, Psm_GS1b_1]: Duplication, Mapping --> n12
+m20 = LCA[Pp_GS1b_1, Psm_GS1b_1]: Speciation, Mapping --> n11
+Ap_GS1b: Leaf Node
+Abi_GS1b_1: Leaf Node
+m37 = LCA[Ap_GS1b, Abi_GS1b_1]: Speciation, Mapping --> n10
+m19 = LCA[Pp_GS1b_1, Abi_GS1b_1]: Speciation, Mapping --> n9
+Pta_GS1b_2: Leaf Node
+Psy_GS1b_2: Leaf Node
+m44 = LCA[Pta_GS1b_2, Psy_GS1b_2]: Speciation, Mapping --> n17
+Pp_GS1b_2: Leaf Node
+m43 = LCA[Pta_GS1b_2, Pp_GS1b_2]: Duplication, Mapping --> n17
+Pl_GS1b_2: Leaf Node
+m42 = LCA[Pta_GS1b_2, Pl_GS1b_2]: Speciation, Mapping --> n15
+Pin_GS1b_2: Leaf Node
+m41 = LCA[Pta_GS1b_2, Pin_GS1b_2]: Duplication, Mapping --> n15
+Pg_GS1b_2: Leaf Node
+Pe_GS1b_2: Leaf Node
+m52 = LCA[Pg_GS1b_2, Pe_GS1b_2]: Speciation, Mapping --> n14
+Pa_GS1b_2: Leaf Node
+m51 = LCA[Pg_GS1b_2, Pa_GS1b_2]: Speciation, Mapping --> n12
+Psm_GS1b_2: Leaf Node
+m50 = LCA[Pg_GS1b_2, Psm_GS1b_2]: Duplication, Mapping --> n12
+m40 = LCA[Pta_GS1b_2, Psm_GS1b_2]: Speciation, Mapping --> n11
+m18 = LCA[Pp_GS1b_1, Psm_GS1b_2]: Duplication, Mapping --> n9
+Pla_GS1b: Leaf Node
+Fok_GS1b: Leaf Node
+m58 = LCA[Pla_GS1b, Fok_GS1b]: Speciation, Mapping --> n26
+Cun_GS1b: Leaf Node
+Met_GS1b: Leaf Node
+m61 = LCA[Cun_GS1b, Met_GS1b]: Speciation, Mapping --> n24
+m57 = LCA[Pla_GS1b, Met_GS1b]: Duplication, Mapping --> n24
+m17 = LCA[Pp_GS1b_1, Met_GS1b]: Speciation, Mapping --> n5
+m7 = LCA[Ame_GS1b, Met_GS1b]: Duplication, Mapping --> n5
+Sci_GS1b_x: Leaf Node
+Sci_GS1b_y: Leaf Node
+m66 = LCA[Sci_GS1b_x, Sci_GS1b_y]: Duplication, Mapping --> Sci
+Ara_GS1b: Leaf Node
+m65 = LCA[Sci_GS1b_x, Ara_GS1b]: Speciation, Mapping --> n19
+Pod_GS1b: Leaf Node
+Nag_GS1b: Leaf Node
+m70 = LCA[Pod_GS1b, Nag_GS1b]: Speciation, Mapping --> n21
+m64 = LCA[Sci_GS1b_x, Nag_GS1b]: Duplication, Mapping --> n19
+m6 = LCA[Ame_GS1b, Nag_GS1b]: Duplication, Mapping --> n5
+Cha_GS1b: Leaf Node
+Cyc_GS1b: Leaf Node
+m75 = LCA[Cha_GS1b, Cyc_GS1b]: Speciation, Mapping --> n4
+Zam_GS1b: Leaf Node
+m74 = LCA[Cha_GS1b, Zam_GS1b]: Speciation, Mapping --> n3
+Gin_GS1b_1: Leaf Node
+m73 = LCA[Cha_GS1b, Gin_GS1b_1]: Speciation, Mapping --> n2
+m5 = LCA[Ame_GS1b, Gin_GS1b_1]: Speciation, Mapping --> n1
+Gin_GS1b_2: Leaf Node
+Gin_GS1b_3: Leaf Node
+m80 = LCA[Gin_GS1b_2, Gin_GS1b_3]: Duplication, Mapping --> Gin
+m4 = LCA[Ame_GS1b, Gin_GS1b_3]: Duplication, Mapping --> n1
+Eph_GS1bx: Leaf Node
+Eph_GS1by: Leaf Node
+m84 = LCA[Eph_GS1bx, Eph_GS1by]: Duplication, Mapping --> Eph
+Gne_GS1b: Leaf Node
+Wel_GS1b: Leaf Node
+m87 = LCA[Gne_GS1b, Wel_GS1b]: Speciation, Mapping --> n8
+m83 = LCA[Eph_GS1bx, Wel_GS1b]: Speciation, Mapping --> n7
+m3 = LCA[Ame_GS1b, Wel_GS1b]: Duplication, Mapping --> n1
+Gne_GS1a: Leaf Node
+Wel_GS1a: Leaf Node
+m92 = LCA[Gne_GS1a, Wel_GS1a]: Speciation, Mapping --> n8
+Eph_GS1a: Leaf Node
+m91 = LCA[Gne_GS1a, Eph_GS1a]: Speciation, Mapping --> n7
+Pod_GS1a: Leaf Node
+Nag_GS1a: Leaf Node
+m101 = LCA[Pod_GS1a, Nag_GS1a]: Speciation, Mapping --> n21
+Ara_GS1a: Leaf Node
+m100 = LCA[Pod_GS1a, Ara_GS1a]: Speciation, Mapping --> n20
+Met_GS1a: Leaf Node
+Fok_GS1a: Leaf Node
+m109 = LCA[Met_GS1a, Fok_GS1a]: Speciation, Mapping --> n25
+Pla_GS1a: Leaf Node
+m108 = LCA[Met_GS1a, Pla_GS1a]: Duplication, Mapping --> n25
+Sci_GS1a: Leaf Node
+m107 = LCA[Met_GS1a, Sci_GS1a]: Speciation, Mapping --> n22
+Ame_GS1a: Leaf Node
+Tor_GS1a: Leaf Node
+m116 = LCA[Ame_GS1a, Tor_GS1a]: Speciation, Mapping --> n29
+Cun_GS1a: Leaf Node
+m115 = LCA[Ame_GS1a, Cun_GS1a]: Speciation, Mapping --> n23
+Cep_GS1a: Leaf Node
+m114 = LCA[Ame_GS1a, Cep_GS1a]: Duplication, Mapping --> n23
+m106 = LCA[Met_GS1a, Cep_GS1a]: Duplication, Mapping --> n22
+Tba_GS1a: Leaf Node
+Tax_GS1a: Leaf Node
+m121 = LCA[Tba_GS1a, Tax_GS1a]: Speciation, Mapping --> n30
+m105 = LCA[Met_GS1a, Tax_GS1a]: Duplication, Mapping --> n22
+m99 = LCA[Pod_GS1a, Tax_GS1a]: Speciation, Mapping --> n19
+Gin_GS1a: Leaf Node
+m98 = LCA[Pod_GS1a, Gin_GS1a]: Speciation, Mapping --> n1
+Pg_GS1a: Leaf Node
+Pe_GS1a: Leaf Node
+m129 = LCA[Pg_GS1a, Pe_GS1a]: Speciation, Mapping --> n14
+Pa_GS1a: Leaf Node
+m128 = LCA[Pg_GS1a, Pa_GS1a]: Speciation, Mapping --> n12
+Psm_GS1a: Leaf Node
+m127 = LCA[Pg_GS1a, Psm_GS1a]: Duplication, Mapping --> n12
+Ap_GS1a: Leaf Node
+Abi_GS1a: Leaf Node
+m134 = LCA[Ap_GS1a, Abi_GS1a]: Speciation, Mapping --> n10
+m126 = LCA[Pg_GS1a, Abi_GS1a]: Speciation, Mapping --> n9
+Pp_GS1a: Leaf Node
+Psy_GS1a: Leaf Node
+m139 = LCA[Pp_GS1a, Psy_GS1a]: Speciation, Mapping --> n18
+Pta_GS1a: Leaf Node
+m138 = LCA[Pp_GS1a, Pta_GS1a]: Speciation, Mapping --> n17
+Pl_GS1a: Leaf Node
+Pin_GS1a: Leaf Node
+m143 = LCA[Pl_GS1a, Pin_GS1a]: Speciation, Mapping --> n16
+m137 = LCA[Pp_GS1a, Pin_GS1a]: Speciation, Mapping --> n15
+m125 = LCA[Pg_GS1a, Pin_GS1a]: Duplication, Mapping --> n9
+m97 = LCA[Pod_GS1a, Pin_GS1a]: Duplication, Mapping --> n1
+Cha_GS1a: Leaf Node
+Cyc_GS1a: Leaf Node
+m147 = LCA[Cha_GS1a, Cyc_GS1a]: Speciation, Mapping --> n4
+Zam_GS1a: Leaf Node
+m146 = LCA[Cha_GS1a, Zam_GS1a]: Speciation, Mapping --> n3
+m96 = LCA[Pod_GS1a, Zam_GS1a]: Duplication, Mapping --> n1
+m90 = LCA[Gne_GS1a, Zam_GS1a]: Duplication, Mapping --> n1
+m2 = LCA[Ame_GS1b, Zam_GS1a]: Duplication, Mapping --> n1
+Cha_GS2: Leaf Node
+Cyc_GS2: Leaf Node
+m152 = LCA[Cha_GS2, Cyc_GS2]: Speciation, Mapping --> n4
+Gin_GS2: Leaf Node
+m151 = LCA[Cha_GS2, Gin_GS2]: Speciation, Mapping --> n2
+m1 = LCA[Ame_GS1b, Gin_GS2]: Duplication, Mapping --> n1
+
+The minimum reconciliation cost is: 101 (Duplications: 27, Transfers: 0, Losses: 74)
+Total number of optimal solutions: 1
+Total number of candidates for gene birth: 1

@@ -1,0 +1,32 @@
+Package: orthGS
+Title: Orthology vs Paralogy Relationships among Glutamine Synthetase from Plants
+Version: 0.1.7
+Authors@R: c(
+    person("Elena", "Aledo",  email = "elenaaledoesteban@gmail.com", role = c("aut", "cre", "cph")),
+    person("Juan-Carlos", "Aledo",  email = "caledo@uma.es", role = "aut", comment = c(ORCID = "0000-0002-3497-9945")))
+Description: Tools to analyze and infer orthology and paralogy relationships between glutamine synthetase proteins in seed plants.
+License: GPL (>= 2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends: 
+    R (>= 2.10)
+LazyData: true
+Imports:
+  ape,
+  bio3d,
+  castor,
+  igraph,
+  phangorn,
+  phytools,
+  seqinr,
+  TreeTools
+Suggests: 
+  BiocManager,
+  Biostrings,
+  fs,
+  knitr,
+  muscle,
+  rmarkdown,
+  testthat
+VignetteBuilder: knitr
