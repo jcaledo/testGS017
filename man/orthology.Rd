@@ -31,5 +31,5 @@ Infer orthogroups using species and gene trees reconciliation
 The executable of RANGER-DTL (https://compbio.engr.uconn.edu/software/RANGER-DTL) should be installed. All input trees must be expressed using the Newick format terminated by a semicolon, and they must be fully binary (fully resolved) and rooted. Species names in the species tree must be unique. E.g, E.g., (((speciesA_gene1, speciesC_gene1), speciesB_geneX), speciesC_gene2); and (((speciesA, speciesC), speciesB), speciesC); are both valid gene tree inputs and, in fact, represent the same gene tree. This gene tree contains one copy of the gene from speciesA and speciesB, and two copies from speciesC.
 }
 \examples{
-orthology(trees = system.file("extdata", "input.trees", package = "orthGS"))
+\donttest{orthology(trees = system.file("extdata", "input.trees", package = "orthGS"))}
 }

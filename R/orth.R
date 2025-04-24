@@ -225,13 +225,20 @@ speciesGS <- function(sp){
 #' @param saverec path to the directory where to save the reconcilation file. If not provided the file is not saved (default)
 #' @details The executable of RANGER-DTL (https://compbio.engr.uconn.edu/software/RANGER-DTL) should be installed. All input trees must be expressed using the Newick format terminated by a semicolon, and they must be fully binary (fully resolved) and rooted. Species names in the species tree must be unique. E.g, E.g., (((speciesA_gene1, speciesC_gene1), speciesB_geneX), speciesC_gene2); and (((speciesA, speciesC), speciesB), speciesC); are both valid gene tree inputs and, in fact, represent the same gene tree. This gene tree contains one copy of the gene from speciesA and speciesB, and two copies from speciesC.
 #' @return  A list with four elements. The first one is a 'phylo' object where the nodelabels indicate the event: D, duplication or T transfer. If no label is shown is because the event correspond to speciation. The second element is a dataframe (the first column is the label of the internal nodes in the gene tree; the second column is the label of the internal nodes in the species tree, and the third and fourth columns label each internal node according to the inferred event). The third element of the list is an adjacency matrix: 1 when two proteins are orthologous, 0 if they are paralogous. The last element of the list is an orthogroup graph.
-#' @examples \donttest{if (interactive()){orthology(trees = system.file("extdata", "input.trees", package = "orthGS"))}}
+#' @examples \donttest{orthology(trees = system.file("extdata", "input.trees", package = "orthGS"))}
 #' @importFrom igraph graph_from_adjacency_matrix
 #' @importFrom igraph as_data_frame
 #' @importFrom utils data
 #' @export
 
 orthology <- function(trees, invoke = "Ranger-DTL.mac", d = 2, t = 10, l = 1, plot = TRUE, saverec = FALSE){
+
+  exec <- Sys.which(invoke)
+
+  if (exec == ""){
+    message("The required Ranger-DTL executable is not on the system")
+    return(invisible(NULL)) # Gracefully exit, don't error
+  }
 
   if (!is.logical(saverec)){
     cmd <- paste(invoke, " -i ", trees, " -D ", d, " -T ", t, " -L ", l, " -o ", saverec, sep = "")
