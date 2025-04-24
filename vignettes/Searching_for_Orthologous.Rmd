@@ -3,7 +3,7 @@ title: "Searching for GS Orthologs"
 output: rmarkdown::html_vignette
 author: Elena Aledo
 vignette: >
-  %\VignetteIndexEntry{Searching_for_Orthologous}
+  %\VignetteIndexEntry{Searching_for_GS_Orthologous}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

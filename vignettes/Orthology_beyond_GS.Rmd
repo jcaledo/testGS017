@@ -57,7 +57,7 @@ The first argument, `trees`, specifies the path to a file containing both trees 
 Optionally, you can adjust the default costs assigned to gene duplication (d), gene loss (l), and horizontal transfer (t) by specifying additional parameters (see the RANGER-DTL 2.0 Manual  at https://compbio.engr.uconn.edu/software/RANGER-DTL).
 
 
-```{r, echo=TRUE, results='hide'}
+```{r, eval=FALSE}
 results <- orthology(trees = system.file("extdata", "input.trees", package = "orthGS"),
                      invoke = "Ranger-DTL.mac", plot = FALSE)
 ```
@@ -65,7 +65,7 @@ results <- orthology(trees = system.file("extdata", "input.trees", package = "or
 Since genes that diverge due to duplication (D) events are considered paralogs, while those that diverge due to speciation (S) events are considered orthologs, we will next plot the tree, highlighting these evolutionary events at the internal nodes.
 
 
-```{r}
+```{r, eval=FALSE}
 tr <- results[[1]]
 for (i in 1:length(tr$node.label)){
   if (tr$node.label[i] == ""){tr$node.label[i] <- "S"}
@@ -74,12 +74,16 @@ plot(tr)
 ape::nodelabels(text = tr$node.label)
 ```
 
+![](./Figures/SD.png){width=70%}
+
 In this way, we can see that gene/protein A from species-3 is a paralog of those  from species-2 and species-4. In other words, we are not using orthologs to reconstruct the phylogeny of these species, which explains the discrepancy of this tree and the species tree we showed earlier. The **orthGS** package allows us to visualize these orthology/paralogy relationships even more explicitly, in the form of a graph:
 
-```{r}
+```{r, eval=FALSE}
 g <- results[[4]]
 plot(g)
 ```
+
+![](./Figures/orthNW.png){width=70%}
 
 As we already know, the gene/protein from species-3 is an ortholog only of that from species-1, but not of the genes/proteins from species-2 and species-4.
 
