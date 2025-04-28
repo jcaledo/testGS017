@@ -3,7 +3,7 @@ title: "Unraveling the Hidden Paralogs"
 output: rmarkdown::html_vignette
 author: Elena Aledo
 vignette: >
-  %\VignetteIndexEntry{Unraveling_the_Hiden_Paralogous}
+  %\VignetteIndexEntry{Unraveling the Hiden Paralogs}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -53,7 +53,7 @@ Along time, gene families expand (gene duplication) and contract (gene loss), an
 
 &nbsp; 
 
-One last general cautionary note before we move forward and jump into the specifics of the GS evolutionary history in gymnosperms. Another misconception that we often find in the literature is related to the use of the term 'ortholog' for proteins present in different species but fulfiling the same function, while in these misleading context, the term 'paralogs' is reserved for proteins found in the same species but performing different functions. However, as pointed by Jensen [4]: "Although plenty of examples exist for which this evolutionary scenario has indeed played out, it is quite possible for orthologs to acquire different catalytic (or regulatory) properties and for paralogs to retain the same function". In fact, recent data suggests that this last possibility occurs very frequently [7].
+One last general cautionary note before we move forward and jump into the specifics of the GS evolutionary history in gymnosperms. Another misconception that we often find in the literature is related to the use of the term 'ortholog' for proteins present in different species but fulfilling the same function, while in these misleading context, the term 'paralogs' is reserved for proteins found in the same species but performing different functions. However, as pointed by Jensen [4]: "Although plenty of examples exist for which this evolutionary scenario has indeed played out, it is quite possible for orthologs to acquire different catalytic (or regulatory) properties and for paralogs to retain the same function". In fact, recent data suggests that this last possibility occurs very frequently [7].
 
 ## Glutamine synthetase from conifers
 
@@ -160,7 +160,7 @@ We observe that GS1a isoforms from the genus Pinus are paralogs of the GS1 from 
 
 &nbsp;
 
-![Figure 5. Species and protein trees reconciliation. The focus has been placed on the order Pinales. The duplicantions (squares) and losses (crosses) have been emphisized with colored circles (turquoise for GS1a and brown for GS1b).](./Figures/RecPinales.png){width=50%}
+![Figure 5. Species and protein trees reconciliation. The focus has been placed on the order Pinales. The duplications (squares) and losses (crosses) have been emphasized with colored circles (turquoise for GS1a and brown for GS1b).](./Figures/RecPinales.png){width=50%}
 
 
 ## GS1a orthology network beyond conifers
@@ -200,7 +200,7 @@ It would be interesting to investigate in the future whether this balance betwee
 4. Jensen RA. Orthologs and paralogs - we need to get ir right. *Genome Biol* 2001, **2(8)**:interactions1002.1-1002.3.
 5. Fitch WM. Homology. A personal view on some of the problems. *Trends in Genetic* 2000, **16**:227-231.
 6. Koonin EV. Orthologs, paralogs, and evolutionary genomics. *Annu Rev Genet* 2005, **39**:309-338.
-7. Stamboulian M, Guerrero RF, Hahn MW, Radivojac P. The orgholog conjeture revisited: the value of ortholgs and parlogs in function prediction. *Bioinformatics* 2020, **36**:i219-i226.
+7. Stamboulian M, Guerrero RF, Hahn MW, Radivojac P. The orgholog conjecture revisited: the value of ortholgs and parlogs in function prediction. *Bioinformatics* 2020, **36**:i219-i226.
 8. Valderrama-Martín JM, Ortigosa F, Cantón FR, Ávila C, Cañas RA, Cánovas FM. Emerging insights into nitrogen assimilation in gymnosperms. *Trees* 2024, **38**:273-286.
 9. Menet H, Daubin V, Tannier E. Phylogenetic reconciliation. *PLoS Comput Biol* 2022, *18*(11): e1010621.
 pcbi.1010621.

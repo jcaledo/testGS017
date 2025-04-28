@@ -19,7 +19,7 @@ orthology(trees, invoke, d = 2, t = 10, l = 1, plot = TRUE, saverec = FALSE)
 
 \item{plot}{when TRUE, the orthology network graph is plotted.}
 
-\item{saverec}{path to the directory where to save the reconcilation file. If not provided the file is not saved (default)}
+\item{saverec}{path to the directory where to save the reconciliation file. If not provided the file is not saved (default)}
 }
 \value{
 A list with four elements. The first one is a 'phylo' object where the nodelabels indicate the event: D, duplication or T transfer. If no label is shown is because the event correspond to speciation. The second element is a dataframe (the first column is the label of the internal nodes in the gene tree; the second column is the label of the internal nodes in the species tree, and the third and fourth columns label each internal node according to the inferred event). The third element of the list is an adjacency matrix: 1 when two proteins are orthologous, 0 if they are paralogous. The last element of the list is an orthogroup graph.

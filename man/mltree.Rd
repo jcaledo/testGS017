@@ -22,7 +22,7 @@ a ML optimized tree (and parameters)
 Given an alignment builds an ML tree.
 }
 \details{
-The function makes a NJ tree and then improvove it using an optimization procedure based on ML.
+The function makes a NJ tree and then improve it using an optimization procedure based on ML.
 }
 \examples{
 a <- msa(sequences=c("RAPGT", "KMPGT", "ESGGT"), ids = letters[1:3])$ali

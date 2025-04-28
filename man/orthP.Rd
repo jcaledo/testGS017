@@ -15,7 +15,7 @@ orthP(phylo_id, set = "all")
 A list with thee elements: 1. subtree of the relevant proteins; 2. vector color; 3. phylo_ids of the orthologous found.
 }
 \description{
-Searchs orthologous of a given protein within a set of selected species
+Searches orthologous of a given protein within a set of selected species
 }
 \details{
 When set = "all", the search will be carry out against all the species in the database.

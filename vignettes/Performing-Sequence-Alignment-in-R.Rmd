@@ -1,0 +1,138 @@
+---
+title: "Performing Sequence Alignment in R"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Performing Sequence Alignment in R}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r include = FALSE}
+library(orthGS)
+```
+
+Multiple sequence alignment (MSA) is a fundamental tool in biology. Accurate alignment is crucial for downstream analyses in genomics, proteomics, and evolutionary studies, providing insights into biological processes and molecular interactions essential for understanding life.
+
+Some of the current programs for sequence alignment include, but are not limited to:
+
+* MUSCLE 
+* Clustal Omega
+* MAFFT 
+* T-Coffee
+
+Although MSA is not on the focus of the **orthGS** package, it is an important tool for phylogenetic reconstructions and orthology/paralogy analyses. Thus, in the current vignette we offer some indications to perform multiple alignments without leaving the R context.
+
+## Downloading and installing MUSCLE and Clustal Omega
+
+The current version of MUSCLE is v5. Nevertheless, since most R packages are generally designed for earlier versions of MUSCLE (like v3), you may want to dowload an install MUSCLE v3.8.31 (https://drive5.com/muscle/downloads_v3.htm). In my computer I have renamed the binary to ´muscle3´ because I have also installed MUSCLE v5 (https://github.com/rcedgar/muscle/releases/tag/v5.3). Both versions of the software are accessible via my system's PATH environment variable and can be invoked as ´muscle3´ (v3.8.31) or ´muscle´ (v5).
+
+To download and install Clustal Omega you can go to http://www.clustal.org/omega/ and follows the instructions. Nevertheless, if you have a linux based OS you may benefit of the suitable package manager. For instance, for macOS I use `Homebrew`, which can be installed via CLI:
+
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+
+Then: 
+
+`brew install brewsci/bio/clustal-omega`
+
+`brew install brewsci/bio/muscle`
+
+will do the work for you. 
+
+For linux OS you may use either `apt`,  `dnf`, `pacman` or whatever the package manager i suitable for your system.
+
+
+## Performing alignment using the orthGS package
+
+As an example, we will use a small sample of sequences that can be obtained from the **orthGS** package.
+
+```{r}
+# ara <- subsetGS("Arabidopsis thaliana")
+# muscle_aln <- msa(sequences = ara$prot, ids = ara$phylo_id, method = "muscle3")
+# muscle_aln
+```
+
+If we opt to use Clustal Omega instead of MUSCLE:
+
+```{r}
+# clustalo_aln <- msa(sequences = ara$prot, ids = ara$phylo_id, method = "clustalo")
+# clustalo_aln
+```
+
+## Performing alignment using the ape package
+
+The `ape` package in R provides a number of functions, which call their respective programs (executables) from R to align multiple nucleotide (DNAbin) or amino acid (AAbin) sequences. The binaries for the programs must be installed separately (as explained above) and it is highly recommended to do this so that the execubables are in a directory located on the PATH of the system. As a note of interest `ape` allows to call MUSCLE v5 and T-Coffee.
+
+Note that the input sequences must be in format AAbin or DNAbin, which store sequences as binary vectors (less human-readable but more memory-efficient). 
+
+Type in the RStudio terminal `?ape::tcoffee`, for instance, to obtain help in the use of these functions.
+
+
+## Performing alignment using the msa package
+
+The `msa` package in R provides an interface to multiple sequence alignment algorithms (including Clustal Omega, ClustalW and Muscle), allowing users to perform alignments directly from within the R environment.
+The `msa` R package is available via Bioconductor. The simplest way to install the package is the following (uncomment the lines before executing the chunk):
+
+```{r}
+# if (!requireNamespace("BiocManager", quietly=TRUE))
+#     install.packages("BiocManager")
+# BiocManager::install("msa")
+
+# clustalw_aln <- msa::msa(inputSeqs = ara$prot, method = "ClustalW", type = "protein")
+# clustalw_aln
+```
+
+## Performing alignment using the muscle package
+
+The `muscle` package in R is an interface to the MUSCLE (Multiple Sequence Comparison by Log-Expectation) algorithm, which is widely used for performing multiple sequence alignments. The package allows users to run the MUSCLE algorithm from within R, simplifying the process of aligning biological sequences such as DNA, RNA, or protein sequences.
+
+```{r}
+# if (!require("BiocManager", quietly = TRUE))
+#     install.packages("BiocManager")
+# BiocManager::install("muscle")
+# 
+# if (!require("Biostrings", quitely = TRUE))
+#   BiocManager::install("Biostrings")
+
+# seqs <- Biostrings::AAStringSet(ara$prot)
+# mus_aln <- muscle::muscle(seqs)
+# mus_aln
+```
+
+
+## Performing alignment integrating MUSCLE v5 in your R workflow
+
+We can still integrate MUSCLE v5 into our R workflow by calling it as an external command-line tool. Just for the sake of fun:
+
+```{r}
+# # if (!require("BiocManager", quietly = TRUE))
+# #     install.packages("BiocManager")
+# # BiocManager::install("Biostrings")
+# 
+# sq <- ara$prot
+# names(sq) <- ara$phylo_id
+# seqs <- Biostrings::AAStringSet(sq)
+# 
+# ## --- Save the input sequences in a temporary file
+# destfile <- tempfile(pattern = "input_sequences",
+#                      tmpdir = tempdir(),
+#                      fileext = ".fasta")
+# Biostrings::writeXStringSet(seqs, filepath = destfile)
+# 
+# 
+# ## --- Run MUSCLE on the input sequences file
+# system(paste("muscle -align ", destfile, " -output aligned_sequences.fasta", sep = ""))
+# 
+# ## --- Read fasta alignment as dataframe
+# m5 <- seqinr::read.fasta(file = "./aligned_sequences.fasta")
+# m5df <- as.data.frame(matrix(rep(NA, length(m5[[1]]) * length(m5)), nrow = length(m5)) )
+# for (i in 1:length(m5)){
+#   m5df[i, ] <- m5[[i]]
+# }
+```

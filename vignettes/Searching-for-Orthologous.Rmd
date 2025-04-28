@@ -3,7 +3,7 @@ title: "Searching for GS Orthologs"
 output: rmarkdown::html_vignette
 author: Elena Aledo
 vignette: >
-  %\VignetteIndexEntry{Searching_for_GS_Orthologous}
+  %\VignetteIndexEntry{Searching for GS Orthologs}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -53,7 +53,7 @@ Afterwards, we can proceed with the alignment and phylogenetic tree construction
 ```
 
 ```{r}
-aln <- msa(sequences = maize_ara$prot, ids = maize_ara$phylo_id, inhouse = FALSE)
+aln <- msa(sequences = maize_ara$prot, ids = maize_ara$phylo_id)
 a <- aln$ali
 rownames(a) <-  maize_ara$phylo_id
 tr <- mltree(a)$tree

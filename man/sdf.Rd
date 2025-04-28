@@ -17,7 +17,7 @@ A dataframe with 196 rows (GS proteins) and 7 columns:
 }
 }
 \source{
-It has been handly curated by the authors
+It has been curated manually by the authors
 }
 \usage{
 sdf

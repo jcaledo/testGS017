@@ -10,26 +10,28 @@
 
 
 ## ---------------------------------------------------------------- ##
-#     msa <- function(sequences, ids, seqtype, sfile, inhouse )      #
+#      msa <- function(sequences, ids, seqtype, method, sfile)      #
 ## ---------------------------------------------------------------- ##
 #' Multiple Sequence Alignment
-#' @description Aligns multiple protein, DNA or CDS sequences.
-#' @usage msa(sequences, ids = names(sequences), seqtype = "prot", sfile = FALSE, inhouse = FALSE)
+#' @description Aligns multiple protein, DNA or CDS sequences using inhouse software.
+#' @usage msa(sequences, ids = names(sequences), seqtype = "prot", method, sfile = FALSE)
 #' @param sequences vector containing the sequences as strings.
 #' @param seqtype it should be either "prot" of "dna" or "cds" (see details).
+#' @param method the software to be used for the alignment, as invoked in your system. For instance, "muscle3" or "clustalo".
 #' @param ids character vector containing the sequences' ids.
 #' @param sfile if different to FALSE, then it should be a string indicating the path to save a fasta alignment file.
-#' @param inhouse logical, if TRUE the in-house MUSCLE software is used. It must be installed on your system and in the search path for executables.
-#' @details If seqtype is set to "cds" the sequences must not contain stop codons and they will be translated using the standard code. Afterward, the amino acid alignment will be used to lead the codon alignment.
+#' @details Either Clustal Omega or MUSCLE must be installed, and their executable be in your system's PATH. If seqtype is set to "cds" the sequences must not contain stop codons and they will be translated using the standard code. Afterward, the amino acid alignment will be used to lead the codon alignment.
 #' @return Returns a list of four elements. The first one ($seq) provides the sequences analyzed, the second element ($id) returns the identifiers, the third element ($aln) provides the alignment in fasta format and the fourth element ($ali) gives the alignment in matrix format.
-#' @examples msa(sequences = c("APGW", "AGWC", "CWGA"),ids = c("a", "b", "c"))
+#' @examples
+#' \dontrun{msa(sequences = c("APGW", "AGWC", "CWGA"),
+#'                              ids = c("a", "b", "c"))}
 #' @importFrom bio3d seqbind
 #' @importFrom bio3d seqaln
 #' @importFrom bio3d write.fasta
 #' @importFrom seqinr translate
 #' @export
 
-msa <- function (sequences, ids = names(sequences), seqtype = "prot", sfile = FALSE, inhouse = FALSE){
+msa <- function (sequences, ids = names(sequences), seqtype = "prot", method = "muscle3", sfile = FALSE){
 
   tr <- function(seq, genetic_code = 1){
     seq <- gsub(" ", "", seq)
@@ -44,90 +46,55 @@ msa <- function (sequences, ids = names(sequences), seqtype = "prot", sfile = FA
   } else if (length(sequences) != length(ids)) {
     stop("The number of sequences and sequences' ids doesn't match!")
   }
-  if (inhouse) {
-    if (seqtype == "cds"){
-      dnaSeq <- sequences
-      cod <- strsplit(gsub("(.{3})", "\\1 ", dnaSeq), split = " ")
-      sequences <- unlist(lapply(sequences, function(x) tr(x)))
-    }
-    seqs <- lapply(sequences, function(x) strsplit(x, split = "")[[1]])
-    sqs <- bio3d::seqbind(seqs[[1]], seqs[[2]], blank = "-")
-    c <- 2
-    while (c < length(sequences)) {
-      c <- c + 1
-      sqs <- bio3d::seqbind(sqs, seqs[[c]], blank = "-")
-    }
-    aln <- bio3d::seqaln(sqs, id = ids, exefile = "muscle")
-    aln$seq <- sequences
-    if (seqtype == "cds"){
-      aln$cod <- aln$ali
-      for (i in 1:length(cod)){
-        contador <- 1
-        for (j in 1:ncol(aln$ali)){
-          if (aln$ali[i,j] != "-"){
-            aln$cod[i,j] <- cod[[i]][contador]
-            contador <- contador + 1
-          } else {
-            aln$cod[i,j] <- "---"
-          }
-        }
-      }
-    }
-    if (sfile != FALSE & seqtype == "cds") {
-      for (i in 1:length(ids)){
-        t <- paste(">", ids[i], sep = "")
-        cat(t, "\n", file = sfile, append = TRUE)
-        tt <- paste(aln$cod[i,], collapse = "")
-        cat(tt, "\n", file = sfile, append = TRUE)
-      }
-    } else if (sfile != FALSE & seqtype != "cds") {
-      bio3d::write.fasta(aln, file = sfile)
-    }
-    if (file.exists("aln.fa")) {
-      system("rm aln.fa")
-    }
-    return(aln)
-  }  else {
-    ## --- Using the Biostring and muscle R packages
-    # seq <- Biostrings::AAStringSet(sequences)
-
-    if (requireNamespace('Biostrings', quietly = TRUE)){
-      if (seqtype == "prot"){
-        seq <- Biostrings::AAStringSet(sequences)
-      } else if (seqtype == "dna"){
-        seq <- Biostrings::DNAStringSet(sequences)
-      }
-    } else {
-      stop("You must install the package Biostrings in order to use this function")
-    }
-
-    if (requireNamespace('muscle', quietly = TRUE)){
-      aln1 <- muscle::muscle(seq)
-    } else {
-      stop("You must install the package muscle in order to use this function")
-    }
-    aln <- list()
-    aln$seq <- sequences
-    aln$ids <- ids
-    aln$aln <- as.character(aln1)
-    l <- sapply(aln$aln, function(x) strsplit(x, split = ""))
-    aln$ali <- matrix(unlist(l), nrow = length(sequences),
-                      byrow = TRUE)
-    if (sfile != FALSE) {
-      for (i in 1:length(aln$aln)) {
-        t <- paste(">", aln$ids[i], sep = "")
-        cat(t, file = sfile, append = TRUE)
-        if (seqtype == "cds"){
-          tt <- paste("\n", aln$cod[i], "\n", sep = "")
-        } else {
-          tt <- paste("\n", aln$aln[i], "\n", sep = "")
-        }
-        cat(tt, file = sfile, append = TRUE)
-      }
-    }
-    return(aln)
+  if (seqtype == "cds"){
+    dnaSeq <- sequences
+    cod <- strsplit(gsub("(.{3})", "\\1 ", dnaSeq), split = " ")
+    sequences <- unlist(lapply(sequences, function(x) tr(x)))
   }
+  seqs <- lapply(sequences, function(x) strsplit(x, split = "")[[1]])
+  sqs <- bio3d::seqbind(seqs[[1]], seqs[[2]], blank = "-")
+  c <- 2
+  while (c < length(sequences)) {
+    c <- c + 1
+    sqs <- bio3d::seqbind(sqs, seqs[[c]], blank = "-")
+  }
+
+  aln <- try(bio3d::seqaln(sqs, id = ids, exefile = method))
+  if (inherits(aln, "try-error")){
+    aln <- bio3d::seqaln(sqs, id = ids, exefile = "muscle")
+  }
+
+  aln$seq <- sequences
+  if (seqtype == "cds"){
+    aln$cod <- aln$ali
+    for (i in 1:length(cod)){
+      contador <- 1
+      for (j in 1:ncol(aln$ali)){
+        if (aln$ali[i,j] != "-"){
+          aln$cod[i,j] <- cod[[i]][contador]
+          contador <- contador + 1
+        } else {
+          aln$cod[i,j] <- "---"
+        }
+      }
+    }
+  }
+  if (sfile != FALSE & seqtype == "cds") {
+    for (i in 1:length(ids)){
+      t <- paste(">", ids[i], sep = "")
+      cat(t, "\n", file = sfile, append = TRUE)
+      tt <- paste(aln$cod[i,], collapse = "")
+      cat(tt, "\n", file = sfile, append = TRUE)
+    }
+  } else if (sfile != FALSE & seqtype != "cds") {
+    bio3d::write.fasta(aln, file = sfile)
+  }
+  if (file.exists("aln.fa")) {
+    system("rm aln.fa")
+  }
+  return(aln)
 }
+
 
 ## ---------------------------------------------------------------- ##
 #                     mltree <- function()                           #
@@ -139,7 +106,7 @@ msa <- function (sequences, ids = names(sequences), seqtype = "prot", sfile = FA
 #' @param df logical. When TRUE msa should be a dataframe, when FALSE msa should be a string giving the path to a fasta file containing the alignment.
 #' @param gapl logical, when TRUE a gapless alignment is used.
 #' @param model allows to choose an amino acid models (see the function phangorn::as.pml)
-#' @details The function makes a NJ tree and then improvove it using an optimization procedure based on ML.
+#' @details The function makes a NJ tree and then improve it using an optimization procedure based on ML.
 #' @return a ML optimized tree (and parameters)
 #' @examples
 #' a <- msa(sequences=c("RAPGT", "KMPGT", "ESGGT"), ids = letters[1:3])$ali

@@ -10,7 +10,7 @@ speciesGS(sp)
 \item{sp}{set of species of interest (either binomial or short code name)}
 }
 \value{
-A datafrane containing the information for the requested species.
+A dataframe containing the information for the requested species.
 }
 \description{
 Map binomial species name to short code species name and vice versa

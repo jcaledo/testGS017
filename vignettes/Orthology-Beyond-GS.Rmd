@@ -3,7 +3,7 @@ title: "Orthology Beyond GS"
 output: rmarkdown::html_vignette
 author: Juan Carlos Aledo
 vignette: >
-  %\VignetteIndexEntry{Orthology_beyond_GS}
+  %\VignetteIndexEntry{Orthology Beyond GS}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -54,7 +54,7 @@ At this point, we are ready to infer the sequence of evolutionary events that re
 
 The first argument, `trees`, specifies the path to a file containing both trees (species and gene/protein). The second argument, `invoke`, defines how the RANGER-DTL executable is called. Remember that you must have RANGER-DTL installed on your machine beforehand. For example, on macOS, you might set invoke = "Ranger-DTL.mac".
 
-Optionally, you can adjust the default costs assigned to gene duplication (d), gene loss (l), and horizontal transfer (t) by specifying additional parameters (see the RANGER-DTL 2.0 Manual  at https://compbio.engr.uconn.edu/software/RANGER-DTL).
+Optionally, you can adjust the default costs assigned to gene duplication (d), gene loss (l), and horizontal transfer (t) by specifying additional parameters (see the RANGER-DTL 2.0 Manual  at https://compbio.engr.uconn.edu/software/RANGER-DTL/).
 
 
 ```{r, eval=FALSE}
@@ -104,7 +104,7 @@ path2rec <- system.file("extdata", "MyRec", package = "orthGS")
 cmd <- paste("python3.11 ", script_path, " -i ", path2rec, " -o ./MyRec.xml", sep = "")
 ```
 
-The MyRec.xml file returned by `ranger_to_recXML.py` can now be visualized using the program `thirdkind`, a nice utility for drawing renconciled phylogenetic trees, which can be reached at https://github.com/simonpenel/thirdkind. Again the code show below is for guidance only.
+The MyRec.xml file returned by `ranger_to_recXML.py` can now be visualized using the program `thirdkind`, a nice utility for drawing reconciled phylogenetic trees, which can be reached at https://github.com/simonpenel/thirdkind/. Again the code show below is for guidance only.
 
 
 ```{r, eval=FALSE}
