@@ -25,7 +25,7 @@ Removes gaps in a given msa.
 It should be noted that this function does not carry out the alignment itself.
 }
 \examples{
-gapless_msa(msa(sequences = c("APGW", "AGWC", "CWGA"),ids = c("a", "b", "c"))$ali)
+\dontrun{gapless_msa(msa(sequences = c("APGW", "AGWC", "CWGA"),ids = c("a", "b", "c"))$ali)}
 }
 \seealso{
 msa
