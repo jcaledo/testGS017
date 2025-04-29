@@ -43,22 +43,18 @@ The function `subsetGS()` takes as an argument the species of interest and retur
 maize_ara <- subsetGS(c("Zea mays", "Arabidopsis thaliana"))
 ```
 
-Afterwards, we can proceed with the alignment and phylogenetic tree construction. Ensure the 'muscle' package is installed. If necessary, uncomment the following lines of code.
+Afterwards, we can proceed with the alignment and phylogenetic tree construction. Ensure the 'muscle' software is installed. 
 
-```{r}
-# if (!require("BiocManager", quietly = TRUE))
-#     install.packages("BiocManager")
-# 
-# BiocManager::install("muscle")
-```
-
-```{r}
-aln <- msa(sequences = maize_ara$prot, ids = maize_ara$phylo_id)
+```{r, eval=FALSE}
+aln <- msa(sequences = maize_ara$prot, 
+           ids = maize_ara$phylo_id, 
+           method = "muscle")
 a <- aln$ali
-rownames(a) <-  maize_ara$phylo_id
 tr <- mltree(a)$tree
 plot(phangorn::midpoint(tr), cex = 0.7)
 ```
+
+![](./Figures/maize_ara.png){width=50%}
 
 If we want to be rigorous, and of course we do, there is  little, if anything, to conclude about orthology relationships between maize and arabidopsis GS proteins in view of these results. So, it's time to switch to a more suitable approach. Firstly, we will use the function `orthG()`, which takes as an argument the set of species to be included in the analysis and returns an orthology graph: two nodes (two GS proteins) are connected if and only if they are orthologs (an adjacency matrix is also provided if wished). 
 
